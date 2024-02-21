@@ -1,0 +1,45 @@
+###
+# Enviar Datos a usuario
+POST http://localhost:3000/api/register HTTP/1.1
+Content-Type: application/json
+{
+    "username":"urielp",
+    "password":"12134511",
+    "phone":611218211,
+    "gender":"Masculino",
+    "fechaNacimiento":"22 de abril",
+    "edad":18,
+    "firstName":"Uriel",
+    "lastName":"Contreras",
+    "email":"SALAS1@gmail.com"
+}
+###
+# Enviar producto
+POST http://localhost:3000/api/registerProducto HTTP/1.1
+Content-Type: application/json
+
+{
+    "codigo":"12345678",
+    "nombre":"RBMCXALIMAA",
+    "descripcion":"juegoS",
+    "fechaCreacion":"21 abril 2023",
+    "estatus":"activo",
+    "provedor":"PUMAS"
+}
+###
+# Enviar provedor
+POST http://localhost:3000/api/registerProvedor HTTP/1.1
+Content-Type: application/json
+
+{
+    "nombre":"Jose Migu",
+    "apellido":"Soto Diaz",
+    "empresa":"MAURI",
+    "telefono":61813819,
+    "correo":"Miguel30@gmail.com",
+    "idProvedor":"A1111"
+}
+
+
+### 
+GET http://localhost:3000/api/login HTTP/1.1

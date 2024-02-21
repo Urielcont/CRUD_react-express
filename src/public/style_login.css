@@ -1,0 +1,16 @@
+body{
+    background-color: #222;
+}
+h1{
+    text-align: center;
+}
+#login-form{
+    width: 30%;
+    margin: 0 auto;
+}
+#login-form span{
+    background-color: aqua;
+}
+#login-form input{
+    border-color: rgb(0, 0, 0);
+ }
