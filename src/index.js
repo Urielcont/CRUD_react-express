@@ -3,7 +3,7 @@ const connectDB = require("./config/db.js");
 // requerir paquetes de express
 const express = require("express");
 const cookieParser = require('cookie-parser');
-
+const cors = require('cors');
 // llamar rutas
 const authRoutes = require("./routes/auth.route.js")
 // Comenzar app express
@@ -13,6 +13,8 @@ const app = express();
 connectDB();
 
 // middleware
+app.use(cors({
+})); //librereia que permite entrada desde un dominio especifico
 app.use(cookieParser());
 app.use(express.json());
 app.use('/api', authRoutes);

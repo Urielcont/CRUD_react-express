@@ -8,14 +8,14 @@ const authController = require("../controller/auth.controller.js");
 const router =express.Router();
 // ---------RUTA PARA USUARIOS---------
 // Ruta para registrarse
-router.post('/register',authjwt.verifyToken,authController.register);
+router.post('/register',authController.register);
 // Ruta para ver los usuarios registrados
 router.get('/register',authjwt.verifyToken,authController.UserRegisters)
 
 
 // ---------RUTA PARA PRODUCTOS---------
 // Ruta para registrar nuevo productos
-router.post('/registerProducto',authjwt.verifyToken,authController.producto);
+router.post('/registerProducto',authController.producto);
 // Ruta para ver los productos
 router.get('/registerProducto',authjwt.verifyToken,authController.ProductsCreated)
 // Ruta para ver producto especifico con el id
@@ -27,7 +27,7 @@ router.put('/registerProducto/:productId',authjwt.verifyToken,authController.baj
 
 
 // ---------RUTA PARA PROVEDOR---------
-router.post('/registerProvedor',authjwt.verifyToken,authController.provedor);
+router.post('/registerProvedor',authController.provedor);
 // Ruta para ver provedores existentes
 router.get('/registerProvedor',authjwt.verifyToken,authController.ProvedorExisted)
 // ruta para ver proverdor especifico
