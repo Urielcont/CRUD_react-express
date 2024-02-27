@@ -10,7 +10,7 @@ require('dotenv').config();
 
 // ---------CONTROLADOR PARA RUTA DE USUARIOS---------
 // Registrar un nuevo usuario
-exports.register=(req,res)=>{
+exports.register= async (req,res)=>{
     const user= User(req.body);
     user.save().then((data) => res.json(data)).catch((error) => res.json({ message: error}));
     console.log(user)
@@ -30,6 +30,7 @@ exports.producto=async(req,res)=>{
     // producto.save().then((data) => res.json(data)).catch((error) => res.json({ message: error}));
     try {
         const { codigo, nombre, descripcion, fechaCreacion, estatus, provedor } = req.body;
+        
         // Buscar el proveedor por su nombre en la base de datos
         const proveedor = await Provedor.findOne({ idProvedor: provedor });
         if (!proveedor) {
