@@ -1,11 +1,15 @@
 import { useForm } from 'react-hook-form';
 import { useAuth } from '../context/AuthContext';
+import { useEffect } from 'react';
+import {useNavigate} from 'react-router-dom'
 
 function RegisterPage() {
     const { register, handleSubmit } = useForm();
-    
-    const {signup,} = useAuth();
-
+    const {signup, isAuthenticated} = useAuth();
+    const navigate = useNavigate();
+    useEffect(()=>{
+        if (isAuthenticated) navigate("/VerProductos");
+    }, [isAuthenticated])
     const onSubmit = async (values) => {
         try {
             const res = await signup(values);
@@ -19,9 +23,11 @@ function RegisterPage() {
         <div className='flex justify-center items-center '>
             <form onSubmit={handleSubmit(onSubmit)} className='bg-slate-400 shadow-md rounded px-8 pt-6 pm-3 w-200'>
                 <h2 className='text-4xl text-center font-bold mb-4 text-black'>Registrar Usuario</h2>
+
                 <div className='mb-4'>
-                    <label className='block text-gray-700 text-sm font-bold mb-2' htmlFor='username'>Usuario</label>
-                    <input type='text' {...register('username', { required: true })} id='username' className={` border  rounded w-full py-2 bg-sky-200 text-gray-700 `} placeholder='Usuario' />
+                    <label className='block text-gray-700 text-sm font-bold mb-2' htmlFor='username'>Username</label>
+                    <input type='text' {...register('username', { required: true })} id='username' className={` border  rounded w-full py-2 bg-sky-200 text-gray-700 `} placeholder='Username'/>
+                    
                 </div>
 
                 <div className='mb-4'>
