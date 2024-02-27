@@ -6,8 +6,12 @@ function RegisterProvedor() {
     const { register, handleSubmit } = useForm();
     
     const onSubmit = async (values) => {
+        try{
         const res = await registerProvedorRequest(values);
         console.log(res)
+        }catch(error){
+            console.error("Error al registrar usuario:", error);
+        }
     }; 
 
     return (
@@ -38,16 +42,19 @@ function RegisterProvedor() {
                 </div>
 
                 <div className='mb-4'>
+                    <label className='block text-gray-700 text-sm font-bold mb-2' htmlFor='correo'>correo</label>
+                    <input type='text' {...register('correo', { required: true })} id='correo' className={` border  rounded w-full py-2 bg-sky-200 text-gray-700 `} placeholder='correo' />
+                    
+                </div>
+
+
+                <div className='mb-4'>
                     <label className='block text-gray-700 text-sm font-bold mb-2' htmlFor='idProvedor'>ID Proveedor</label>
                     <input type='text' {...register('idProvedor', { required: true })} id='idProvedor' className={` border  rounded w-full py-2 bg-sky-200 text-gray-700 `} placeholder='ID Proveedor' maxLength={10} />
                     
                 </div>
 
-                <div className='mb-4'>
-                    <label className='block text-gray-700 text-sm font-bold mb-2' htmlFor='estatus'>Estatus</label>
-                    <input type='text' {...register('estatus', { required: true })} id='estatus' className={` border  rounded w-full py-2 bg-sky-200 text-gray-700 `} placeholder='ID Proveedor' maxLength={10} />
-                    
-                </div>
+                
 
 
                 <div className='flex items-center justify-center'>

@@ -4,10 +4,8 @@ import { registerProductRequest } from '../api/auth';
 
 function RegisterProducts() {
     const { register, handleSubmit } = useForm();
-    
-    
-
     const onSubmit = async (values) => {
+        console.log(values)
         const res = await registerProductRequest(values);
         console.log(res)
     }; 
@@ -31,13 +29,7 @@ function RegisterProducts() {
                     <input type='text' {...register('descripcion', { required: true })} id='descripcion' className={` border  rounded w-full py-2 bg-sky-200 text-gray-700 `} placeholder='Descripcion'/>
                     
                 </div>
-
-
-                <div className='mb-4'>
-                    <label className='block text-gray-700 text-sm font-bold mb-2' htmlFor='estatus'>Estatus</label>
-                    <input type='text' {...register('estatus', { required: true })} id='estatus' className={` border  rounded w-full py-2 bg-sky-200 text-gray-700 `} placeholder='Estatus' />
-                    
-                </div>
+               
 
                 <div className='mb-4'>
                     <label className='block text-gray-700 text-sm font-bold mb-2' htmlFor='provedor'>Proveedor</label>
