@@ -39,7 +39,7 @@ router.delete('/registerProvedor',authjwt.verifyToken,authController.bajaProvedo
 
 
 router.get('/login',authController.login)
-router.get('/signin',authController.signin)
+router.post('/signin',authController.signin)
 router.post('/create', authController.create)
 // router.post('/login', );
 // router.get('/login',authController.login);

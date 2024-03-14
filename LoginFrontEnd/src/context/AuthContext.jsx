@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import { registerRequest } from '../api/auth';
+import { registerRequest, login } from '../api/auth';
 import PropTypes from 'prop-types';
 
 export const AuthContext = createContext();
@@ -27,8 +27,18 @@ export const AuthProvider = ({ children }) => {
         }
     };
 
+    const sigin = async (user) => {
+        try{
+            const res= await login(user);
+            console.log(res.data);
+            setUser(res.data);
+            setIsAuthenticated(true);
+        }catch(err){
+            console.error(err);
+        }
+    };
     return (
-        <AuthContext.Provider value={{ signup, user, isAuthenticated }}>
+        <AuthContext.Provider value={{ signup,sigin, user, isAuthenticated }}>
             {children}
         </AuthContext.Provider>
     );
@@ -38,3 +48,5 @@ export const AuthProvider = ({ children }) => {
 AuthProvider.propTypes = {
     children: PropTypes.node.isRequired,
 };
+
+
