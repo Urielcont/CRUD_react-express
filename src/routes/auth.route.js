@@ -36,7 +36,7 @@ router.get('/registerProvedor/:provedorId',authjwt.verifyToken,authController.Pr
 router.put('/registerProvedor/:provedorId',authjwt.verifyToken,authController.UpdateProvedorbyId);
 // baja logica del provedor
 router.delete('/registerProvedor',authjwt.verifyToken,authController.bajaProvedor);
-
+router.get('/MostrarProductos',authController.MostrarProductos)
 
 router.get('/login',authController.login)
 router.post('/signin',authController.signin)
