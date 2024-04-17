@@ -71,7 +71,19 @@ exports.ProductsCreatedbyId= async(req,res)=>{
         res.status(500).json({ message: "Error en el servidor" });
     }
 }
-
+exports.MostrarProductos= async(req,res)=>{
+    try {
+         const producto = await Producto.find();
+         if (!producto) {
+             return res.status(404).json({ message: "Producto no encontrado" });
+         }
+         res.json(producto);
+     } catch (error) {
+         console.error(error);
+         res.status(500).json({ message: "Error en el servidor" });
+     }
+ }
+ 
 // Actualizar producto por el id
 exports.UpdateProductbyId= async(req,res)=>{
     try{

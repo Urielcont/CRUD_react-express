@@ -7,6 +7,7 @@ import ProtectedRoute from "./protectedroute.jsx";
 
 import RegisterProducts from './Pages/RegisterProducts';
 import RegisterProvedor from './Pages/RegisterProvedor';
+import MostrarProductosPage from './Pages/VerProductos.jsx';
 function App() {
   return (
    <AuthProvider>
@@ -21,7 +22,7 @@ function App() {
         <Route path='/RegistrarProvedor' element={<RegisterProvedor/>}></Route> 
         <Route element={<ProtectedRoute />}>
         <Route path='/RegistrarProducto' element={<RegisterProducts/>}></Route>
-        <Route path='/VerProductos' element={<h1>Ver Productos</h1>}></Route>
+        <Route path='/VerProductos' element={<MostrarProductosPage/>}></Route>
         </Route>
       </Routes>
     </BrowserRouter>
