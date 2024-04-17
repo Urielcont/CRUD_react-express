@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API= 'http://https://back-michelle.onrender.com/api'
+const API= 'https://back-michelle.onrender.com/api'
 
 export const registerRequest = (user) => axios.post(`${API}/register`, user)
 export const registerProductRequest = (user) => axios.post(`${API}/registerProducto`, user)
