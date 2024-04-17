@@ -4,15 +4,15 @@ import LoginPage from './Pages/LoginPage'
 import { AuthProvider } from './context/AuthContext';
 import ProtectedRoute from "./protectedroute.jsx";
 
-
 import RegisterProducts from './Pages/RegisterProducts';
 import RegisterProvedor from './Pages/RegisterProvedor';
+import InicioPage from './Pages/InicioPage.jsx';
 function App() {
   return (
    <AuthProvider>
      <BrowserRouter>
       <Routes>
-        <Route path='/' element={<h1>Inicio</h1>}></Route>
+        <Route path='/' element={<InicioPage/>}></Route>
         <Route path='/inicio' element={<h1>Page 2</h1>}></Route>
         <Route path='/Registrar' element={<RegisterPage/>}></Route>
         <Route path='/Login' element={<LoginPage/>}></Route>
